@@ -1,12 +1,15 @@
 # base62num
 
-[![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](https://github.com/clap-rs/clap/blob/master/LICENSE-MIT)
+[![Crates.io](https://img.shields.io/crates/d/base62num)](https://crates.io/crates/base62num)
+[![License](https://img.shields.io/crates/l/base62num)](https://github.com/jtr109/base62num/blob/master/LICENSE)
+[![Coverage Status](https://codecov.io/gh/jtr109/base62num/branch/master/graph/badge.svg)](https://codecov.io/gh/jtr109/base62num)
+
 
 A convertor between numbers and strings in [Base62](https://en.wikipedia.org/wiki/Base62).
 
 ## Alphanumeric
 
-This library using [the Base62 index table on Wikipedia](https://en.wikipedia.org/wiki/Base62#Base62_table), which is in the order of "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"[^1].
+This library using [the Base62 index table on Wikipedia](https://en.wikipedia.org/wiki/Base62#Base62_table), which is in the order of "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789" that familiar with [Base64](https://en.wikipedia.org/wiki/Base64#Base64_table).
 
 ## Usages
 
@@ -37,4 +40,4 @@ assert_eq!(decode("B9"), Some(123));
 
 `base62num` is under [the MIT license](./LICENSE).
 
-[^1]: The order is familiar with [Base64](https://en.wikipedia.org/wiki/Base64#Base64_table).
+[^1]:
