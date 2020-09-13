@@ -1,6 +1,6 @@
 [package]
 name = "base62num"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Ryan Li <conbas2019@gmail.com>"]
 edition = "2018"
 license = "MIT"
