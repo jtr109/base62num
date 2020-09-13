@@ -3,6 +3,9 @@ name = "base62num"
 version = "0.1.0"
 authors = ["Ryan Li <conbas2019@gmail.com>"]
 edition = "2018"
+license = "MIT"
+description = "A convertor between numbers and strings in Base62."
+repository = "https://github.com/jtr109/base62num"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
