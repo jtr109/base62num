@@ -4,6 +4,10 @@
 
 A convertor between numbers and strings in [Base62](https://en.wikipedia.org/wiki/Base62).
 
+## Alphanumeric
+
+This library using [the Base62 index table on Wikipedia](https://en.wikipedia.org/wiki/Base62#Base62_table), which is in the order of "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"[^1].
+
 ## Usages
 
 Using the crate as a dependency.
@@ -32,3 +36,5 @@ assert_eq!(decode("B9"), Some(123));
 ## License
 
 `base62num` is under [the MIT license](./LICENSE).
+
+[^1]: The order is familiar with [Base64](https://en.wikipedia.org/wiki/Base64#Base64_table).
