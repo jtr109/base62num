@@ -9,7 +9,7 @@
 //! assert_eq!(encode(123), "B9");
 //!
 //! // Vice versa.
-//! assert_eq!(decode("B9").unwrap(), 123);
+//! assert_eq!(decode("B9"), Ok(123));
 //!
 //! // Any non-alphanumeric character in the string is invalid.
 //! assert_eq!(decode("Base*62"), Err(Base62Error::NonAlphanumeric));
@@ -121,8 +121,8 @@ fn to_num(c: char) -> Result<usize, Base62Error> {
 /// ```rust
 /// use base62num::{decode, Base62Error};
 ///
-/// assert_eq!(decode("H").unwrap(), 7);
-/// assert_eq!(decode("B9").unwrap(), 123);
+/// assert_eq!(decode("H"), Ok(7));
+/// assert_eq!(decode("B9"), Ok(123));
 /// assert_eq!(decode("Base*62"), Err(Base62Error::NonAlphanumeric));
 /// assert_eq!(
 ///     decode("AStringTooLongCausesTheOverflowError"),
@@ -151,8 +151,8 @@ mod tests {
 
     #[test]
     fn decode_pass() {
-        assert_eq!(decode("H").unwrap(), 7);
-        assert_eq!(decode("B9").unwrap(), 123);
+        assert_eq!(decode("H"), Ok(7));
+        assert_eq!(decode("B9"), Ok(123));
         assert_eq!(decode("Base*62"), Err(Base62Error::NonAlphanumeric));
         assert_eq!(
             decode("AStringTooLongCausesTheOverflowError"),
