@@ -39,5 +39,3 @@ assert_eq!(decode("B9"), Some(123));
 ## License
 
 `base62num` is under [the MIT license](./LICENSE).
-
-[^1]:
