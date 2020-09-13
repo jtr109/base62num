@@ -54,9 +54,12 @@ fn to_num(c: char) -> Result<usize, Base62Error> {
 }
 
 pub fn decode(input: &str) -> Result<usize, Base62Error> {
-    input.chars().fold(Ok(0), |acc, c| match to_num(c) {
-        Ok(x) => acc.map(|a| a * BASE + x),
-        Err(err) => Err(err),
+    input.chars().try_fold(0 as usize, |acc, c| {
+        to_num(c).and_then(|x| {
+            acc.checked_mul(BASE)
+                .and_then(|mul| mul.checked_add(x))
+                .ok_or(Base62Error::Overflow)
+        })
     })
 }
 
@@ -75,7 +78,9 @@ mod tests {
         assert_eq!(decode("H").unwrap(), 7);
         assert_eq!(decode("B9").unwrap(), 123);
         assert_eq!(decode("Base*62"), Err(Base62Error::NonAlphanumeric));
-        // TODO: handle overflow
-        // decode("aafdsafdasdfasdfasdfasdfadsfasdf");
+        assert_eq!(
+            decode("AStringTooLongCausesTheOverflowError"),
+            Err(Base62Error::Overflow)
+        );
     }
 }
